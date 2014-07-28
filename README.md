@@ -103,6 +103,20 @@ When the alternate picker icon (crosshair) is tapped it will call the correspond
 }
 ```
 
+Custom Toolbar Buttons
+---
+
+```objective-c
+UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, buttonWidth, 28.0f)];
+[myButton setTitle:@"My Button" forState:UIControlStateNormal];
+[myButton addTarget:self
+             action:@selector(didTapCustomToolbarButton:)
+   forControlEvents:UIControlEventTouchUpInside];
+
+[self addCustomToolbarItemWithButton:myButton];
+
+```
+
 Supported Functions
 ---
 
@@ -143,6 +157,8 @@ ZSSRichTextEditor has the following functions:
 Requirements
 --------------
 `ZSSRichTextEditor` requires iOS7 as well as `CoreGraphics.framework` and `CoreText.framework`.
+
+**When using `ZSSRichTextEditor` in your own project, XCode will automatically add `ZSSRichTextEditor.js` to compile sources under build phases, this will cause `ZSSRichTextEditor` to not work correctly as the javascript file won't be included in your app. Instead, remove it from compile sources and add it to copy bundle resources.**
 
 Attribution
 --------------
